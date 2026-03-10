@@ -337,6 +337,18 @@
 
     <script>
         (function() {
+            <script>
+  (function() {
+
+    // 加在这里（第 340 行附近）
+    if (typeof L === 'undefined') {
+      document.getElementById('map').innerHTML =
+        '<div style="padding:12px;color:#6A0D0D;font-family:Georgia;">地图组件加载失败：Leaflet(L) 未定义。请检查网络/CDN 是否可访问（unpkg.com）。</div>';
+      return;
+    }
+
+    // ---------- 地图初始化 ----------
+    var map = L.map('map').setView([25.052, 102.705], 14);
             // ---------- 地图初始化 ----------
             var map = L.map('map').setView([25.052, 102.705], 14); // 昆明中心微调
 
@@ -516,4 +528,5 @@
     <!-- 关于我们部分的图片使用placeholder，替换时只需更换background-image或直接插入<img> -->
     <!-- 导航链接“首页”跳转地图容器，“关于我们”跳转about部分。 -->
 </body>
+
 </html>
